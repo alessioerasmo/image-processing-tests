@@ -1,7 +1,8 @@
 import skimage
 import math
 from skimage import data, io
-from imgfunc import *
+
+from imgfunc_singletherad import *
 
 # matplotlib usata per mostrare le immagini
 import matplotlib.pyplot as plt
@@ -15,10 +16,13 @@ image = io.imread("lucrezia.png") # legge un'immagine
 """
 
 
-
-plt.imshow(black_white(image))
+renderimg = blur(image, 3) 
+plt.imshow(renderimg)
 print("pixel processed: ")
 print(len(image)*len(image[0]))
+
+
+io.imsave("out.png", renderimg )
 
 plt.show()
 
