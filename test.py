@@ -2,27 +2,30 @@ import skimage
 import math
 from skimage import data, io
 
-from imgfunc_singletherad import *
+from imgfunc_miltitherad import *
 
 # matplotlib usata per mostrare le immagini
 import matplotlib.pyplot as plt
 import matplotlib
 
-image = io.imread("lucrezia.png") # legge un'immagine
+image = io.imread("thumb-1920-1251351.jpg") # legge un'immagine
 """
     Restituisce una rappresentazione dell'immagine sotto forma 
     di array bidimesnionale, il cui valore di una singola cella 
     è un array contenente 3 valori (R G B)
 """
 
+renderimg = black_white(image) 
+print("execution time:")
+print(duration)
 
-renderimg = blur(image, 3) 
+
 plt.imshow(renderimg)
 print("pixel processed: ")
 print(len(image)*len(image[0]))
 
 
-io.imsave("out.png", renderimg )
+# io.imsave("out.png", renderimg )
 
 plt.show()
 

@@ -1,10 +1,13 @@
 import sys
 from numpy import *
+import time
 
 def black_white(image):
     """
     Turns the image into a black and white one
     """
+    start = round(time.time()*1000)
+
     row = 0
     while (row<len(image)):
         column = 0
@@ -20,7 +23,12 @@ def black_white(image):
                 image[row][column][i] = average
                 i+=1 
             column += 1
-        row += 1         
+        row += 1   
+
+    duration = round(time.time()*1000) - start
+
+    print("execution time:")
+    print(duration)      
     return image
 
 def negative(image):
